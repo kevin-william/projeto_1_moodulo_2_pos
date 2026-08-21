@@ -28,9 +28,11 @@ Usar somente Python/Jupyter, PyTorch, TensorBoard, pandas, NumPy, scikit-learn e
 - Cada bloco oculto segue `Linear → BatchNorm opcional → ativação → Dropout opcional`.
 - Classificação: uma saída, `BCEWithLogitsLoss` com `pos_weight` calculado do treino e métricas de acurácia, precisão, recall e F1.
 - Regressão: uma saída linear, `MSELoss` e métricas MAE, RMSE e R² em escala real.
-- Usar AdamW, 30 épocas e `ReduceLROnPlateau(factor=0.5, patience=5)`.
+- Usar AdamW, limite de 40 épocas e `ReduceLROnPlateau` com `factor=0.5`, `patience=3`, `threshold=1e-3` absoluto e `min_lr=1e-5`.
+- Aplicar early stopping com paciência de 8 épocas e melhoria mínima de `1e-4`, preservando separadamente o checkpoint de qualquer melhor `val_loss`.
 - Implementar loops explícitos de treino e validação, `model.train()`, `model.eval()` e `torch.no_grad()`.
-- A cada época, registrar loss, métrica, learning rate e normas média/máxima dos gradientes no TensorBoard.
+- A cada época, registrar loss, métrica, learning rate após o passo do scheduler, normas média/máxima dos gradientes e contador do early stopping no TensorBoard.
+- Reiniciar visualmente a sessão TensorBoard de cada experimento com `purge_step=0`, evitando misturar épocas de execuções anteriores.
 - Salvar o melhor modelo por `val_loss` em `checkpoints/` com `state_dict`, configuração, época, métricas e threshold de classificação.
 
 ## Experimentos controlados

@@ -1,5 +1,8 @@
 # Ambiente do notebook desafio1.ipynb
-torch>=2.2
+# A build CUDA usa o repositório oficial do PyTorch; o PyPI continua sendo usado para as demais bibliotecas.
+--index-url https://download.pytorch.org/whl/cu130
+--extra-index-url https://pypi.org/simple
+torch==2.13.0+cu130
 tensorboard>=2.14
 numpy>=1.26
 pandas>=2.0
