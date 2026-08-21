@@ -1,0 +1,58 @@
+# Byte-compiled / otimizados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribuição / empacotamento
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+profile_default/
+
+# Documentação histórica local (não versionada neste projeto)
+/docs/
+
+# Logs e artefatos de treino
+runs/
+logs/
+*.log
+*_log.txt
+
+# Resultados de varreduras e dados serializados locais
+pickles_varredura/
+pickles_varredura_conservador/
+*.pkl
+
+# Backups locais do notebook e seus resultados
+.bak_*/
+
+# Checkpoints locais de modelo
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configurações locais / segredos
+.env
+.env.local
